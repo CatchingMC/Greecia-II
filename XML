@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<map proto="1.1">
+<name>Olympus</name>
+<version>1.0.0</version>
+<objective>Your goal is to get the two wools on the opposite team's base.</objective>
+<authors>
+    <author>CatchingMC</author>
+</authors>
+<teams>
+   <team id="green-team" color="green" max="16" max-overfill="20">Green Team</team>
+   <team id="pink-team" color="pink" max="16" max-overfill="20">Pink Team</team>
+</teams>
+<kits>
+    <kit name="spawn" force="true">
+        <item slot="0">stone sword</item>
+        <item slot="1">bow</item>
+        <item slot="2">iron pickaxe</item>
+        <item slot="3">iron shovel</item>
+        <item slot="4" amount="16">green stained clay</item>
+        <item slot="5" amount="16">block of quartz</item>
+        <item slot="8" amount="32">cooked salmon</item>
+        <item slot="28" amount="16">arrows</item>
+    </kit>
+    <kit name="green" parents="spawn">
+        <helmet color="667F33">leather helmet</helmet>
+        <chestplate color="667F33">leather tunic</chestplate>
+        <leggings>chain leggings</leggings>
+        <boots color="667F33">leather boots</boots>
+    </kit>
+    <kit name="pink" parents="spawn">
+        <helmet color="F27FA5">leather helmet</helmet>
+        <chestplate color="F27FA5">leather tunic</chestplate>
+        <leggings>chain leggings</leggings>
+        <boots color="F27FA5">leather boots</boots>
+    </kit>
+</kits>
+<wools>
+    <wool team="green" color="red" craftable="false">
+        <monument><block>-586,9,534</block></monument>
+    </wool>
+    <wool team="green" color="magenta" craftable="false">
+        <monument><block>-586,9,532</block></monument>
+    </wool>
+        <wool team="pink" color="light blue" craftable="false">
+        <monument><block>-438,9,532</block></monument>
+    </wool>
+    <wool team="pink" color="cyan" craftable="false">
+        <monument><block>-438,9,534</block></monument>
+    </wool>
+</wools>
+<toolrepair>
+    <tool>stone sword</tool>
+    <tool>bow</tool>
+    <tool>iron pickaxe</tool>
+    <tool>iron shovel</tool>
+</toolrepair>
+<itemremove>
+    <item>leather helmet</item>
+    <item>cooked salmon</item>
+    <item>leather tunic</item>
+    <item>leather boots</item>
+    <item>chain leggings</item>
+</itemremove>
+<spawns>
+    <spawn team="green" kit="green">
+        <regions yaw="90">
+            <cuboid name="abc" min="-629,21,542" max="-612,6,524"/> 
+        </regions>
+    </spawn>
+    <spawn team="pink" kit="pink">
+        <regions yaw="-90">
+            <cuboid min="-412,6,542" max="-394,21,523"/>
+        </regions>
+    </spawn>
+</spawns>
+</map>
