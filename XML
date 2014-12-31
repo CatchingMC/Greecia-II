@@ -2,7 +2,7 @@
 <map proto="1.1">
 <name>Olympus</name>
 <version>1.0.0</version>
-<objective>Your goal is to get the two wools on the opposite team's base.</objective>
+<objective>Destroy the other team's core before they destroy yours!</objective>
 <authors>
     <author>CatchingMC</author>
 </authors>
@@ -34,20 +34,15 @@
         <boots color="F27FA5">leather boots</boots>
     </kit>
 </kits>
-<wools>
-    <wool team="green" color="red" craftable="false">
-        <monument><block>-586,9,534</block></monument>
-    </wool>
-    <wool team="green" color="magenta" craftable="false">
-        <monument><block>-586,9,532</block></monument>
-    </wool>
-        <wool team="pink" color="light blue" craftable="false">
-        <monument><block>-438,9,532</block></monument>
-    </wool>
-    <wool team="pink" color="cyan" craftable="false">
-        <monument><block>-438,9,534</block></monument>
-    </wool>
-</wools>
+<cores material="obsidian" leak="6">
+    <core team="green">
+        <region><cuboid min="-590,14,535" max="-587,17,531"/></region>
+    </core>
+</cores>
+<cores material="obsidian" leak="6">
+    <core team="pink">
+        <region><cuboid min="-438,14,535" max="-435,17,531"/></region>
+    </core>
 <toolrepair>
     <tool>stone sword</tool>
     <tool>bow</tool>
@@ -62,15 +57,30 @@
     <item>chain leggings</item>
 </itemremove>
 <spawns>
-    <spawn team="green" kit="green">
+    <spawn team="pink-team" kit="pink">
         <regions yaw="90">
-            <cuboid name="abc" min="-629,21,542" max="-612,6,524"/> 
+            <block name="pink-1">-397,9,526</block>
+            <block name="pink-2">-397,9,540</block>
         </regions>
     </spawn>
-    <spawn team="pink" kit="pink">
+    <spawn team="green-team" kit="green">
         <regions yaw="-90">
-            <cuboid min="-412,6,542" max="-394,21,523"/>
+            <block name="green-1">-627,9,526</block> 
+            <block name="green-1">-627,9,540</block> 
         </regions>
     </spawn>
+    <default>
+        <regions yaw="0">
+            <block name="default">-515,28,579</block> 
+        </regions>
+    </default>
 </spawns>
+<regions>
+    <cuboid name="green-spawn" min="-612,6,541" max="-629,20,525"/>
+    <cuboid name="pink-spawn"  min="-395,20,524" max="-412,6,541"/>
+</regions>
+<apply><region name="green-spawn" message="You may not edit the spawns!"/>block-break</apply>
+<apply><region name="green-spawn" message="You may not edit the spawns!"/>block-place></apply>
+<apply><region name="pink-spawn" message="You may not edit the spawns!"/>block-break</apply>
+<apply><region name="pink-spawn" message="You may not edit the spawns!"/>block-place></apply>
 </map>
