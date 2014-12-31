@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<map proto="1.1">
+<map proto="1.3.6">
 <name>Olympus</name>
 <version>1.0.0</version>
 <objective>Destroy the other team's core before they destroy yours!</objective>
@@ -16,32 +16,30 @@
         <item slot="1">bow</item>
         <item slot="2">iron pickaxe</item>
         <item slot="3">iron shovel</item>
-        <item slot="4" amount="16">green stained clay</item>
-        <item slot="5" amount="16">block of quartz</item>
-        <item slot="8" amount="32">cooked salmon</item>
-        <item slot="28" amount="16">arrows</item>
+        <item slot="4" amount="16" damage="13">stained clay</item>
+        <item slot="5" amount="16">quartz block</item>
+        <item slot="8" amount="64">cooked fish</item>
+        <item slot="28" amount="16">arrow</item>
     </kit>
     <kit name="green" parents="spawn">
-        <helmet color="667F33">leather helmet</helmet>
-        <chestplate color="667F33">leather tunic</chestplate>
-        <leggings>chain leggings</leggings>
-        <boots color="667F33">leather boots</boots>
+        <helmet color="667F33" damage="-3000">leather helmet</helmet>
+        <chestplate color="667F33" damage="-3000">leather tunic</chestplate>
+        <leggings damage="-3000">chain leggings</leggings>
+        <boots color="667F33" damage="-3000">leather boots</boots>
     </kit>
     <kit name="pink" parents="spawn">
-        <helmet color="F27FA5">leather helmet</helmet>
-        <chestplate color="F27FA5">leather tunic</chestplate>
-        <leggings>chain leggings</leggings>
-        <boots color="F27FA5">leather boots</boots>
+        <helmet color="F27FA5" damage="-3000">leather helmet</helmet>
+        <chestplate color="F27FA5" damage="-3000">leather tunic</chestplate>
+        <leggings damage="-3000">chain leggings</leggings>
+        <boots color="F27FA5" damage="-3000">leather boots</boots>
     </kit>
 </kits>
 <cores material="obsidian" leak="6">
     <core team="green">
-        <region><cuboid min="-590,14,535" max="-587,17,531"/></region>
+        <cuboid min="-590,14,535" max="-587,17,531"/>
     </core>
-</cores>
-<cores material="obsidian" leak="6">
     <core team="pink">
-        <region><cuboid min="-438,14,535" max="-435,17,531"/></region>
+        <cuboid min="-438,14,535" max="-435,17,531"/>
     </core>
 <toolrepair>
     <tool>stone sword</tool>
@@ -51,36 +49,64 @@
 </toolrepair>
 <itemremove>
     <item>leather helmet</item>
-    <item>cooked salmon</item>
-    <item>leather tunic</item>
+    <item>cooked fish</item>
+    <item>leather chestplate</item>
     <item>leather boots</item>
     <item>chain leggings</item>
 </itemremove>
 <spawns>
-    <spawn team="pink-team" kit="pink">
+    <spawn team="pink" kit="pink">
         <regions yaw="90">
-            <block name="pink-1">-397,9,526</block>
-            <block name="pink-2">-397,9,540</block>
+            <cuboid min="-400,9,534" max="-405,9,532"/>
         </regions>
     </spawn>
-    <spawn team="green-team" kit="green">
+    <spawn team="green" kit="green">
         <regions yaw="-90">
-            <block name="green-1">-627,9,526</block> 
-            <block name="green-1">-627,9,540</block> 
+            <cuboid min="-626,9,532" max="-621,9,534"/>
         </regions>
     </spawn>
     <default>
-        <regions yaw="0">
-            <block name="default">-515,28,579</block> 
+        <regions yaw="90">
+            <cuboid min="-517,28,579" max="-516,28,578"/>
         </regions>
     </default>
 </spawns>
+<filters>
+    <filter name="deny-void">
+        <deny>
+            <void/>
+        </deny>
+    </filter>
+    <filter name="deny-all">
+        deny-blocks
+    </filter>
+    <filter name="only-green">
+        <team>green</team>
+    </filter>
+    <filter name="only-pink">
+        <team>pink</team>
+    </filter>
+    <filter>
+        <filter name="deny-blocks">
+    </filter>
+</filters>
 <regions>
-    <cuboid name="green-spawn" min="-612,6,541" max="-629,20,525"/>
-    <cuboid name="pink-spawn"  min="-395,20,524" max="-412,6,541"/>
+    <rectangle name="map" min="-oo,-oo" max="oo,oo"/>
+    <union name="bases">
+        <cuboid name="green-spawn" min="-612,6,541" max="-629,20,525"/>
+        <cuboid name="pink-spawn"  min="-395,20,524" max="-412,6,541"/>
+    </union>
+    <apply block="deny-blocks" message="You may not edit the spawns!">
+        <union name="bases">
+    </apply>
+    <apply block="only-pink">
+        <region name="pink-spawn">
+    </apply>
+    <apply block="only-green">
+        <region name="green-spawn">
+    </apply>
+    <apply block="deny-void">
+        <region name="map"/>
+    </apply>
 </regions>
-<apply><region name="green-spawn" message="You may not edit the spawns!"/>block-break</apply>
-<apply><region name="green-spawn" message="You may not edit the spawns!"/>block-place></apply>
-<apply><region name="pink-spawn" message="You may not edit the spawns!"/>block-break</apply>
-<apply><region name="pink-spawn" message="You may not edit the spawns!"/>block-place></apply>
 </map>
