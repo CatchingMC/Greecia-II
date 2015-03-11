@@ -7,10 +7,6 @@ Destroy the other team's core before they destroy yours!
 <authors>
 	<author>CatchingMC</author>
 </authors>
-<contributors>
-    <contributor contribution="XML Help">chickolympics</contributor>
-    <contributor contribution="Suggestions">SherriffSoco</contributor>
-</contributors>
 <teams>
 	<team id="blue-team" color="blue" max="16" max-overfill="20">Blue Team</team>
 	<team id="red-team" color="red" max="16" max-overfill="20">Red Team</team>
@@ -100,16 +96,6 @@ Destroy the other team's core before they destroy yours!
 		<cuboid name="red-spawn" min="-638,45,516" max="-622,37,500"/>
 	</apply>
 </regions>
-<tnt>
-    <instantignite>on</instantignite>
-    <fuse>2s</fuse>
-</tnt>
-<killreward>
-    <filter>	
-    	<kill-streak count="3"/>
-    </filter>
-    <item>tnt</item>
-</killreward>
 <killreward>
     <filter>	
     	<kill-streak count="1"/>
